@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  #cont{
+      width:30%;
+      height:500px;
+      margin:auto;
+      border:1px ;
+      display: block;
+  }
+  #cont>.mmcont{
+      width:95%;
+      height:30%;
+      margin:auto;
+      border:1px ;
+  } 
+  #cont>.mmcont>.min{
+      width:40%;
+      height:70%;
+      float:left;
+      border:1px solid black;
+      background-color: rgb(254,0,0);
+    
+  } 
+   #cont>.mmcont>.max{
+      width:40%;
+      height:70%;
+      float:right;
+      border:1px solid black;
+    background-color: rgb(0,170,1);
+  
+  } 
+ 
+     #cont>.mmcont>.tcont{
+      width:85%;
+      height:25%;
+      clear:both;
+      margin: auto;
+      border:1px ;
+
+  } 
+    #cont>.score{
+      width:60%;
+      height:15%;
+      margin:auto;
+      font-weight: bolder;
+      border:1px solid black;
+      background-color: rgb(179,179,179);
+  } 
+  #inp{
+      text-align: center;
+      padding:5%;
+      font-weight: bolder;
+      font-size: xx-large;
+  }
+     #grid{
+     display:grid;
+     width:80%;
+     margin:auto;
+     grid-template-columns:auto auto auto ;
+     grid-gap:5%
+      }
+    #grid>.gridbtn{
+        margin:5%;
+        width:80px;
+        height:80px;
+        border:1px solid black;
+        font-size: 30px;
+    } 
+    .g{
+        background-color: rgb(102,129,0);
+    }
+    .o{
+        background-color:rgb(255,102,0) ;
+    } 
+    .p{
+        background-color: rgb(129,0,101);
+    }
+    #cont>.enter{
+    margin:15% 40%;
+    width:500px
+    }
+    
+</style>   
+<body>
+    <div id =cont>
+        <div class=mmcont>
+            <div class=min>
+                <h1 id="min"style="text-align:center;padding:4%">10</h1>
+            </div>
+            <div class=max>
+                <h1 id="max" style="text-align:center;padding:4%">2021</h1>
+            </div>
+            <div class=tcont>
+                <h2 style="margin:0px;float:left">MIN</h2>
+                <h2 style="margin:0px;float:right">MAX</h2>
+            </div>
+        </div>
+        <div class=score>
+            <p style="float:left;margin:-8% 38%">SCORE</p>
+            <h1 id=inp style="margin: 0%;">#</h1>
+
+        </div>  
+        <div id=grid>
+            <button onclick="btn1(1)" class="gridbtn g" value="1">1</button>
+            <button onclick="btn1(2)" class="gridbtn o" value="2">2</button>
+            <button onclick="btn1(3)" class="gridbtn g" value="3">3</button>
+            <button onclick="btn1(4)" class="gridbtn o" value="4">4</button>
+            <button onclick="btn1(5)" class="gridbtn o" value="5">5</button>
+            <button onclick="btn1(6)" class="gridbtn o" value="6">6</button>
+            <button onclick="btn1(7)" class="gridbtn g" value="7">7</button>
+            <button onclick="btn1(8)" class="gridbtn o" value="8">8</button>
+            <button onclick="btn1(9)" class="gridbtn g" value="9">9</button>
+            <div></div>
+            <button onclick="btn1(0)" class="gridbtn p">0</button>
+        </div> 
+        <button onclick="btn2()"style="width: 250px;height: 80px;background-color: rgb(0, 0, 0); margin:70px; color: white; font-size: 22px;">ENTER</button>
+    </div>
+</body>
+</html>
+<script>
+    var d=""
+    function btn1(i){
+    if(d=="#")
+     d=""
+     d+=i
+     var j=document.getElementById("inp");
+     j.innerHTML=d
+      
+      
+    }
+    function btn2(){
+        var min=document.getElementById("min").textContent
+        var max=document.getElementById("max").textContent
+      if(d=="#"||d==""){
+          document.getElementById("min").innerHTML
+          document.getElementById("max").innerHTML 
+      } 
+      else if(Number(min)>Number(d)){
+          document.getElementById("min").innerHTML = d
+      } 
+      else if(Number(max) < Number(d)){
+            document.getElementById("max").innerHTML = d
+        }
+        d = "#";
+        document.getElementById("inp").innerHTML = d;
+    }
+
+</script>
